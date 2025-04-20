@@ -19,11 +19,15 @@ const HomePage = () => {
     setImageUrl(URL.createObjectURL(image));
   };
 
+  const handleImageLoaded = async () => {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+  };
+
   return (
     <div>
       <h1>Hitbox Generator</h1>
       <section>
-        <ImageCanvas imageUrl={imageUrl} />
+        <ImageCanvas imageUrl={imageUrl} onImageLoaded={handleImageLoaded} />
       </section>
       <ImageSelectButton text="Choose from Device" onImageSelect={onImageGiven} />
       <CameraOpenButton  text="Take a Photo"       onImageTaken={onImageGiven} />
