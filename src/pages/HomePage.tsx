@@ -1,3 +1,4 @@
+import ImageCanvas from '@/components/ImageCanvas';
 import CameraOpenButton from "@/components/CameraOpenButton";
 import ImageSelectButton from '@/components/ImageSelectButton';
 
@@ -11,7 +12,7 @@ const HomePage = () => {
     <div>
       <h1>Hitbox Generator</h1>
       <section>
-        <img src="https://picsum.photos/200/300" id="sample-image"/>
+        <ImageCanvas imageUrl="https://picsum.photos/200/300" />
       </section>
       <ImageSelectButton text="Choose from Device" onImageSelect={onImageGiven} />
       <CameraOpenButton  text="Take a Photo"       onImageTaken={onImageGiven} />
