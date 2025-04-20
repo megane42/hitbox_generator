@@ -1,11 +1,14 @@
 import React, { useRef } from 'react';
+import { Button, Box, SxProps, Theme } from '@mui/material';
+import ImageIcon from '@mui/icons-material/Image';
 
 type Props = {
   text: string;
   onImageSelect: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  sx?: SxProps<Theme>;
 };
 
-const ImageSelectButton: React.FC<Props> = ({ text, onImageSelect }) => {
+const ImageSelectButton: React.FC<Props> = ({ text, onImageSelect, sx }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const onButtonClick = () => {
@@ -13,10 +16,20 @@ const ImageSelectButton: React.FC<Props> = ({ text, onImageSelect }) => {
   };
 
   return (
-    <div>
-      <button onClick={ onButtonClick }>
+    <Box>
+      <Button
+        variant="outlined"
+        startIcon={<ImageIcon />}
+        onClick={onButtonClick}
+        sx={{
+            textTransform: 'none',
+            borderRadius: 2,
+            padding: '8px 16px',
+            ...sx,
+          }}
+      >
         {text}
-      </button>
+      </Button>
       <input
         type="file"
         accept="image/*"
@@ -24,7 +37,7 @@ const ImageSelectButton: React.FC<Props> = ({ text, onImageSelect }) => {
         style={{ display: 'none' }}
         ref={fileInputRef}
       />
-    </div>
+    </Box>
   );
 };
 

@@ -1,11 +1,14 @@
 import React, { useRef } from 'react';
+import { Button, Box, SxProps, Theme } from '@mui/material';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
 
 type Props = {
   text: string;
   onImageTaken: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  sx?: SxProps<Theme>;
 };
 
-const CameraOpenButton: React.FC<Props> = ({ text, onImageTaken }) => {
+const CameraOpenButton: React.FC<Props> = ({ text, onImageTaken, sx }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const onButtonClick = () => {
@@ -13,10 +16,20 @@ const CameraOpenButton: React.FC<Props> = ({ text, onImageTaken }) => {
   };
 
   return (
-    <div>
-      <button onClick={ onButtonClick }>
+    <Box>
+      <Button
+        variant="contained"
+        startIcon={<CameraAltIcon />}
+        onClick={onButtonClick}
+        sx={{
+            textTransform: 'none',
+            borderRadius: 2,
+            padding: '8px 16px',
+            ...sx,
+          }}
+      >
         {text}
-      </button>
+      </Button>
       <input
         type="file"
         accept="image/*"
@@ -25,7 +38,7 @@ const CameraOpenButton: React.FC<Props> = ({ text, onImageTaken }) => {
         style={{ display: 'none' }}
         ref={fileInputRef}
       />
-    </div>
+    </Box>
   );
 };
 

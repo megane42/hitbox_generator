@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, Paper, SxProps, Theme } from '@mui/material';
 
 interface ImageCanvasProps {
   imageUrl: string;
   onImageLoaded: () => Promise<void>;
+  sx?: SxProps<Theme>;
 }
 
-const ImageCanvas = ({ imageUrl, onImageLoaded }: ImageCanvasProps) => {
+const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,21 +32,39 @@ const ImageCanvas = ({ imageUrl, onImageLoaded }: ImageCanvasProps) => {
   }, [imageUrl, onImageLoaded]);
 
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Paper
+      elevation={3}
+      sx={{
+          position: 'relative',
+          overflow: 'hidden',
+          borderRadius: 2,
+          '& canvas': {
+            display: 'block',
+            maxWidth: '100%',
+            height: 'auto',
+          },
+          ...sx,
+        }}
+    >
       <canvas ref={canvasRef} />
       {isLoading && (
         <Box
           sx={{
             position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
           }}
         >
           <CircularProgress />
         </Box>
       )}
-    </Box>
+    </Paper>
   );
 };
 
