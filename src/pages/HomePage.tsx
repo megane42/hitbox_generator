@@ -6,7 +6,7 @@ const onImageGiven = (event: React.ChangeEvent<HTMLInputElement>) => {
   console.log(image?.size);
 };
 
-function HomePage() {
+const HomePage = () => {
   return (
     <div>
       <h1>Hitbox Generator</h1>
@@ -17,6 +17,6 @@ function HomePage() {
       <CameraOpenButton  text="Take a Photo"       onImageTaken={onImageGiven} />
     </div>
   );
-}
+};
 
 export default HomePage;
