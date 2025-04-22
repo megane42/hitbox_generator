@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ImageCanvas from '@/components/ImageCanvas';
 import CameraOpenButton from "@/components/CameraOpenButton";
 import ImageSelectButton from '@/components/ImageSelectButton';
+import { Box } from '@mui/material';
 
 const HomePage = () => {
   const DEFAULT_IMAGE = "https://picsum.photos/200/300";
@@ -24,14 +25,14 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <Box>
       <h1>Hitbox Generator</h1>
-      <section>
+      <Box sx={{ maxWidth: '600px' }}>
         <ImageCanvas imageUrl={imageUrl} onImageLoaded={handleImageLoaded} />
-      </section>
+      </Box>
       <ImageSelectButton text="Choose from Device" onImageSelect={onImageGiven} />
       <CameraOpenButton  text="Take a Photo"       onImageTaken={onImageGiven} />
-    </div>
+    </Box>
   );
 };
 

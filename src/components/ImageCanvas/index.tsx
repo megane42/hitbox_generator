@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, CircularProgress, Paper, SxProps, Theme } from '@mui/material';
+import { Box, CircularProgress, SxProps, Theme } from '@mui/material';
 
 interface ImageCanvasProps {
   imageUrl: string;
@@ -32,21 +32,25 @@ const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
   }, [imageUrl, onImageLoaded]);
 
   return (
-    <Paper
-      elevation={3}
+    <Box
       sx={{
           position: 'relative',
           overflow: 'hidden',
           borderRadius: 2,
-          '& canvas': {
-            display: 'block',
-            maxWidth: '100%',
-            height: 'auto',
-          },
+          width: 'fit-content',
+          height: 'auto',
+          boxShadow: 3,
           ...sx,
         }}
     >
-      <canvas ref={canvasRef} />
+      <canvas 
+        ref={canvasRef} 
+        style={{ 
+          display: 'block',
+          maxWidth: '100%',
+          height: 'auto'
+        }}
+      />
       {isLoading && (
         <Box
           sx={{
@@ -64,7 +68,7 @@ const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
           <CircularProgress />
         </Box>
       )}
-    </Paper>
+    </Box>
   );
 };
 
