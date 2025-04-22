@@ -2,7 +2,9 @@ import { useState } from 'react';
 import ImageCanvas from '@/components/ImageCanvas';
 import CameraOpenButton from "@/components/CameraOpenButton";
 import ImageSelectButton from '@/components/ImageSelectButton';
+import poseLandmarkerUrl from '@/assets/pose_landmarker_lite.task';
 import { Box } from '@mui/material';
+import { FilesetResolver, PoseLandmarker } from '@mediapipe/tasks-vision';
 
 const HomePage = () => {
   const DEFAULT_IMAGE = "https://picsum.photos/200/300";
@@ -20,15 +22,29 @@ const HomePage = () => {
     setImageUrl(URL.createObjectURL(image));
   };
 
-  const handleImageLoaded = async () => {
-    await new Promise(resolve => setTimeout(resolve, 3000));
+  const onImageLoaded = async (canvas: HTMLCanvasElement) => {
+    const visionWasmFileSet = await FilesetResolver.forVisionTasks(
+      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
+    );
+
+    const poseLandmarker = await PoseLandmarker.createFromOptions(
+      visionWasmFileSet,
+      {
+        baseOptions: {
+          modelAssetPath: poseLandmarkerUrl
+        },
+        runningMode: "IMAGE",
+      });
+
+    const poseLandmarkerResult = poseLandmarker.detect(canvas);
+    console.log(poseLandmarkerResult);
   };
 
   return (
     <Box>
       <h1>Hitbox Generator</h1>
       <Box sx={{ maxWidth: '600px' }}>
-        <ImageCanvas imageUrl={imageUrl} onImageLoaded={handleImageLoaded} />
+        <ImageCanvas imageUrl={imageUrl} onImageLoaded={onImageLoaded} />
       </Box>
       <ImageSelectButton text="Choose from Device" onImageSelect={onImageGiven} />
       <CameraOpenButton  text="Take a Photo"       onImageTaken={onImageGiven} />

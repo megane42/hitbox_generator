@@ -3,7 +3,7 @@ import { Box, CircularProgress, SxProps, Theme } from '@mui/material';
 
 interface ImageCanvasProps {
   imageUrl: string;
-  onImageLoaded: () => Promise<void>;
+  onImageLoaded: (canvas: HTMLCanvasElement) => Promise<void>;
   sx?: SxProps<Theme>;
 }
 
@@ -19,6 +19,7 @@ const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
     if (!ctx) return;
 
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.src = imageUrl;
     img.onload = async () => {
       canvas.width  = img.width;
@@ -26,7 +27,7 @@ const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
       ctx.drawImage(img, 0, 0);
 
       setIsLoading(true);
-      await onImageLoaded();
+      await onImageLoaded(canvas);
       setIsLoading(false);
     };
   }, [imageUrl, onImageLoaded]);
@@ -34,18 +35,18 @@ const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
   return (
     <Box
       sx={{
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: 2,
-          width: 'fit-content',
-          height: 'auto',
-          boxShadow: 3,
-          ...sx,
-        }}
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: 2,
+        width: 'fit-content',
+        height: 'auto',
+        boxShadow: 3,
+        ...sx,
+      }}
     >
-      <canvas 
-        ref={canvasRef} 
-        style={{ 
+      <canvas
+        ref={canvasRef}
+        style={{
           display: 'block',
           maxWidth: '100%',
           height: 'auto'
