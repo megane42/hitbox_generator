@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import { FilesetResolver, PoseLandmarker } from '@mediapipe/tasks-vision';
+import { useEffect, useRef, useState } from 'react';
 import poseLandmarkerUrl from '@/assets/pose_landmarker_lite.task';
 
 interface UseImageCanvasProps {

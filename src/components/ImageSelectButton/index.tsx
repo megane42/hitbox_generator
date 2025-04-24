@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, Box, SxProps, Theme } from '@mui/material';
 import ImageIcon from '@mui/icons-material/Image';
-import { useImageSelectButton } from './useImageSelectButton';
+import { Button, Box, SxProps, Theme } from '@mui/material';
+import React from 'react';
+import { useImageSelectButton } from '@/components/ImageSelectButton/useImageSelectButton';
 
 type Props = {
   text: string;

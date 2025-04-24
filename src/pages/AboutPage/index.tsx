@@ -1,4 +1,4 @@
-import { useAboutPage } from './useAboutPage';
+import { useAboutPage } from '@/pages/AboutPage/useAboutPage';
 
 const AboutPage = () => {
   useAboutPage();

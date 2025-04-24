@@ -1,5 +1,5 @@
 import { Box, CircularProgress, SxProps, Theme } from '@mui/material';
-import { useImageCanvas } from './useImageCanvas';
+import { useImageCanvas } from '@/components/ImageCanvas/useImageCanvas';
 
 interface ImageCanvasProps {
   imageUrl: string;

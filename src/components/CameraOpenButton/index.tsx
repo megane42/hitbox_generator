@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, Box, SxProps, Theme } from '@mui/material';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
-import { useCameraOpenButton } from './useCameraOpenButton';
+import { Button, Box, SxProps, Theme } from '@mui/material';
+import React from 'react';
+import { useCameraOpenButton } from '@/components/CameraOpenButton/useCameraOpenButton';
 
 type Props = {
   text: string;

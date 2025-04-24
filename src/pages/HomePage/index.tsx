@@ -1,8 +1,8 @@
-import ImageCanvas from '@/components/ImageCanvas';
-import CameraOpenButton from "@/components/CameraOpenButton";
-import ImageSelectButton from '@/components/ImageSelectButton';
 import { Box } from '@mui/material';
-import { useHomePage } from './useHomePage';
+import CameraOpenButton from "@/components/CameraOpenButton";
+import ImageCanvas from '@/components/ImageCanvas';
+import ImageSelectButton from '@/components/ImageSelectButton';
+import { useHomePage } from '@/pages/HomePage/useHomePage';
 
 const HomePage = () => {
   const { imageUrl, onImageGiven } = useHomePage();
