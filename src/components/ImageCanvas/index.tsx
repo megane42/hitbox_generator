@@ -1,36 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
 import { Box, CircularProgress, SxProps, Theme } from '@mui/material';
+import { useImageCanvas } from './useImageCanvas';
 
 interface ImageCanvasProps {
   imageUrl: string;
-  onImageLoaded: (canvas: HTMLCanvasElement) => Promise<void>;
   sx?: SxProps<Theme>;
 }
 
-const ImageCanvas = ({ imageUrl, onImageLoaded, sx }: ImageCanvasProps) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.src = imageUrl;
-    img.onload = async () => {
-      canvas.width  = img.width;
-      canvas.height = img.height;
-      ctx.drawImage(img, 0, 0);
-
-      setIsLoading(true);
-      await onImageLoaded(canvas);
-      setIsLoading(false);
-    };
-  }, [imageUrl, onImageLoaded]);
+const ImageCanvas = ({ imageUrl, sx }: ImageCanvasProps) => {
+  const { canvasRef, isLoading } = useImageCanvas({ imageUrl });
 
   return (
     <Box
