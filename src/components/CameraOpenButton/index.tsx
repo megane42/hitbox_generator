@@ -1,6 +1,5 @@
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { Button, Box, SxProps, Theme } from '@mui/material';
-import React from 'react';
 import { useCameraOpenButton } from '@/components/CameraOpenButton/useCameraOpenButton';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   sx?: SxProps<Theme>;
 };
 
-const CameraOpenButton: React.FC<Props> = ({ text, onImageTaken, sx }) => {
+const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
   const { fileInputRef, onButtonClick } = useCameraOpenButton();
 
   return (

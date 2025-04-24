@@ -1,6 +1,5 @@
 import ImageIcon from '@mui/icons-material/Image';
 import { Button, Box, SxProps, Theme } from '@mui/material';
-import React from 'react';
 import { useImageSelectButton } from '@/components/ImageSelectButton/useImageSelectButton';
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
   sx?: SxProps<Theme>;
 };
 
-const ImageSelectButton: React.FC<Props> = ({ text, onImageSelect, sx }) => {
+const ImageSelectButton = ({ text, onImageSelect, sx }: Props) => {
   const { fileInputRef, onButtonClick } = useImageSelectButton();
 
   return (
