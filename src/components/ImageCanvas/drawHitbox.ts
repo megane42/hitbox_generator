@@ -9,6 +9,7 @@ import { drawHurtboxRightArm } from '@/components/ImageCanvas/drawHurtboxRightAr
 import { drawHurtboxRightLeg } from '@/components/ImageCanvas/drawHurtboxRightLeg';
 import { drawHurtboxUpperBody } from '@/components/ImageCanvas/drawHurtboxUpperBody';
 import { drawTest } from '@/components/ImageCanvas/drawTest';
+import { checkFightingStyle } from './checkFightingStyle';
 
 export const drawHitbox = async (
   cnv: HTMLCanvasElement,
@@ -29,7 +30,12 @@ export const drawHitbox = async (
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
 
-  console.log(checkSide(poseLandmarkerResult));
+  const sides = checkSide(poseLandmarkerResult)
+  const styles = checkFightingStyle(poseLandmarkerResult, sides)
+
+  console.log(sides);
+  console.log(styles);
+
   drawTest(cnv, ctx, poseLandmarkerResult);
   drawHitboxLeftArm(cnv, ctx, poseLandmarkerResult);
   drawHurtboxHead(cnv, ctx, poseLandmarkerResult);

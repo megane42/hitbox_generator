@@ -1,6 +1,6 @@
 import { PoseLandmarkerResult } from "@mediapipe/tasks-vision";
 
-type Side = "1P" | "2P"
+export type Side = "1P" | "2P"
 
 export const checkSide = (
   poseLandmarkerResult: PoseLandmarkerResult,
