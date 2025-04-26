@@ -29,9 +29,9 @@ export const drawHurtboxHead = (
     ctx.fillStyle = "rgb(50 255 50 / 30%)";
     ctx.fillRect(
       minXPx,
-      minYPx - marginY,
+      minYPx - (maxYPx - minYPx),
       (maxXPx - minXPx) + marginX,
-      (maxYPx - minYPx) + marginY
+      (maxYPx - minYPx) * 2.0 + marginY
     );
   }
 };
