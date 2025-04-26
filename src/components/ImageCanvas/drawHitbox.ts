@@ -1,4 +1,5 @@
 import { FilesetResolver, PoseLandmarker } from '@mediapipe/tasks-vision';
+import { checkSide } from '@/components/ImageCanvas/checkSide';
 import { drawTest } from '@/components/ImageCanvas/drawTest';
 import { drawHitboxLeftArm } from '@/components/ImageCanvas/drawHitboxLeftArm';
 import { drawHurtboxHead } from '@/components/ImageCanvas/drawHurtboxHead';
@@ -27,6 +28,8 @@ export const drawHitbox = async (
     });
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
+
+  console.log(checkSide(poseLandmarkerResult))
   drawTest(cnv, ctx, poseLandmarkerResult)
   drawHitboxLeftArm(cnv, ctx, poseLandmarkerResult)
   drawHurtboxHead(cnv, ctx, poseLandmarkerResult)
