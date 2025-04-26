@@ -16,11 +16,11 @@ export const drawHurtboxRightLeg = (
     let minX = Infinity;
     let minY = Infinity;
     [24, 26, 28, 30, 32].forEach((i) => {
-      maxX = Math.max(maxX, landmark[i].x)
-      maxY = Math.max(maxY, landmark[i].y)
-      minX = Math.min(minX, landmark[i].x)
-      minY = Math.min(minY, landmark[i].y)
-    })
+      maxX = Math.max(maxX, landmark[i].x);
+      maxY = Math.max(maxY, landmark[i].y);
+      minX = Math.min(minX, landmark[i].x);
+      minY = Math.min(minY, landmark[i].y);
+    });
     const maxXPx = maxX * cnv.width;
     const maxYPx = maxY * cnv.height;
     const minXPx = minX * cnv.width;
@@ -34,4 +34,4 @@ export const drawHurtboxRightLeg = (
       (maxYPx - minYPx) + marginY
     );
   }
-}
+};

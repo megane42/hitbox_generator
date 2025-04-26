@@ -1,14 +1,14 @@
 import { FilesetResolver, PoseLandmarker } from '@mediapipe/tasks-vision';
+import poseLandmarkerUrl from '@/assets/pose_landmarker_lite.task';
 import { checkSide } from '@/components/ImageCanvas/checkSide';
-import { drawTest } from '@/components/ImageCanvas/drawTest';
 import { drawHitboxLeftArm } from '@/components/ImageCanvas/drawHitboxLeftArm';
 import { drawHurtboxHead } from '@/components/ImageCanvas/drawHurtboxHead';
-import { drawHurtboxUpperBody } from '@/components/ImageCanvas/drawHurtboxUpperBody';
-import { drawHurtboxRightArm } from '@/components/ImageCanvas/drawHurtboxRightArm';
 import { drawHurtboxLeftArm } from '@/components/ImageCanvas/drawHurtboxLeftArm';
-import { drawHurtboxRightLeg } from '@/components/ImageCanvas/drawHurtboxRightLeg';
 import { drawHurtboxLeftLeg } from '@/components/ImageCanvas/drawHurtboxLeftLeg';
-import poseLandmarkerUrl from '@/assets/pose_landmarker_lite.task';
+import { drawHurtboxRightArm } from '@/components/ImageCanvas/drawHurtboxRightArm';
+import { drawHurtboxRightLeg } from '@/components/ImageCanvas/drawHurtboxRightLeg';
+import { drawHurtboxUpperBody } from '@/components/ImageCanvas/drawHurtboxUpperBody';
+import { drawTest } from '@/components/ImageCanvas/drawTest';
 
 export const drawHitbox = async (
   cnv: HTMLCanvasElement,
@@ -29,13 +29,13 @@ export const drawHitbox = async (
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
 
-  console.log(checkSide(poseLandmarkerResult))
-  drawTest(cnv, ctx, poseLandmarkerResult)
-  drawHitboxLeftArm(cnv, ctx, poseLandmarkerResult)
-  drawHurtboxHead(cnv, ctx, poseLandmarkerResult)
-  drawHurtboxUpperBody(cnv, ctx, poseLandmarkerResult)
-  drawHurtboxRightArm(cnv, ctx, poseLandmarkerResult)
-  drawHurtboxLeftArm(cnv, ctx, poseLandmarkerResult)
-  drawHurtboxRightLeg(cnv, ctx, poseLandmarkerResult)
-  drawHurtboxLeftLeg(cnv, ctx, poseLandmarkerResult)
-}
+  console.log(checkSide(poseLandmarkerResult));
+  drawTest(cnv, ctx, poseLandmarkerResult);
+  drawHitboxLeftArm(cnv, ctx, poseLandmarkerResult);
+  drawHurtboxHead(cnv, ctx, poseLandmarkerResult);
+  drawHurtboxUpperBody(cnv, ctx, poseLandmarkerResult);
+  drawHurtboxRightArm(cnv, ctx, poseLandmarkerResult);
+  drawHurtboxLeftArm(cnv, ctx, poseLandmarkerResult);
+  drawHurtboxRightLeg(cnv, ctx, poseLandmarkerResult);
+  drawHurtboxLeftLeg(cnv, ctx, poseLandmarkerResult);
+};

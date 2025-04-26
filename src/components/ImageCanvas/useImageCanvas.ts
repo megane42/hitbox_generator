@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { drawHitbox } from './drawHitbox';
+import { drawHitbox } from '@/components/ImageCanvas/drawHitbox';
 
 interface UseImageCanvasProps {
   imageUrl: string;
@@ -25,7 +25,7 @@ export const useImageCanvas = ({ imageUrl }: UseImageCanvasProps) => {
       ctx.drawImage(img, 0, 0);
 
       setIsLoading(true);
-      await drawHitbox(canvas, ctx)
+      await drawHitbox(canvas, ctx);
       setIsLoading(false);
     };
   }, [imageUrl]);

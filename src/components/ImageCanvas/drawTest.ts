@@ -12,4 +12,4 @@ export const drawTest = (
     });
     drawingUtils.drawConnectors(landmark, PoseLandmarker.POSE_CONNECTIONS);
   }
-}
+};

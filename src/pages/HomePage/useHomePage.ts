@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import defaultImage from "@/assets/default.jpg"
+import defaultImage from "@/assets/default.jpg";
 
 export const useHomePage = () => {
   const [imageUrl, setImageUrl] = useState<string>(defaultImage);
