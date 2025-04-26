@@ -5,7 +5,7 @@ import '@/App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/hitbox_generator">
       <Routes>
         <Route path="/"      element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

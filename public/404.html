@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      // 現在のURLを取得
+      const path = window.location.pathname;
+      // リダイレクト先のURLを構築
+      const redirectUrl = '/hitbox_generator/index.html' + window.location.search + window.location.hash;
+      // リダイレクト
+      window.location.href = redirectUrl;
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html> 
