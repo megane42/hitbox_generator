@@ -8,7 +8,6 @@ import { drawHurtboxLeftLeg } from '@/components/ImageCanvas/drawHurtboxLeftLeg'
 import { drawHurtboxRightArm } from '@/components/ImageCanvas/drawHurtboxRightArm';
 import { drawHurtboxRightLeg } from '@/components/ImageCanvas/drawHurtboxRightLeg';
 import { drawHurtboxUpperBody } from '@/components/ImageCanvas/drawHurtboxUpperBody';
-import { drawTest } from '@/components/ImageCanvas/drawTest';
 import { checkFightingStyle } from './checkFightingStyle';
 
 export const drawHitbox = async (
@@ -29,19 +28,18 @@ export const drawHitbox = async (
     });
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
-
-  const sides = checkSide(poseLandmarkerResult)
-  const styles = checkFightingStyle(poseLandmarkerResult, sides)
-
-  console.log(sides);
-  console.log(styles);
-
-  drawTest(cnv, ctx, poseLandmarkerResult);
-  drawHitboxLeftArm(cnv, ctx, poseLandmarkerResult);
-  drawHurtboxHead(cnv, ctx, poseLandmarkerResult);
-  drawHurtboxUpperBody(cnv, ctx, poseLandmarkerResult);
-  drawHurtboxRightArm(cnv, ctx, poseLandmarkerResult);
-  drawHurtboxLeftArm(cnv, ctx, poseLandmarkerResult);
-  drawHurtboxRightLeg(cnv, ctx, poseLandmarkerResult);
-  drawHurtboxLeftLeg(cnv, ctx, poseLandmarkerResult);
+  for (const landmark of poseLandmarkerResult.landmarks) {
+    const side  = checkSide(landmark)
+    const style = checkFightingStyle(landmark, side)
+    console.log(side);
+    console.log(style);
+    // drawTest(cnv, ctx, poseLandmarkerResult);
+    drawHitboxLeftArm(cnv, ctx, landmark);
+    drawHurtboxHead(cnv, ctx, landmark);
+    drawHurtboxUpperBody(cnv, ctx, landmark);
+    drawHurtboxRightArm(cnv, ctx, landmark);
+    drawHurtboxLeftArm(cnv, ctx, landmark);
+    drawHurtboxRightLeg(cnv, ctx, landmark);
+    drawHurtboxLeftLeg(cnv, ctx, landmark);
+  }
 };
