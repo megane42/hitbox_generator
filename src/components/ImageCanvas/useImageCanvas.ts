@@ -1,4 +1,4 @@
-import { FilesetResolver, PoseLandmarker } from '@mediapipe/tasks-vision';
+import { DrawingUtils, FilesetResolver, PoseLandmarker } from '@mediapipe/tasks-vision';
 import { useEffect, useRef, useState } from 'react';
 import poseLandmarkerUrl from '@/assets/pose_landmarker_lite.task';
 
@@ -43,6 +43,14 @@ export const useImageCanvas = ({ imageUrl }: UseImageCanvasProps) => {
       const poseLandmarkerResult = poseLandmarker.detect(canvas);
       console.log(poseLandmarkerResult);
 
+      const drawingUtils = new DrawingUtils(ctx);
+      for (const landmark of poseLandmarkerResult.landmarks) {
+        drawingUtils.drawLandmarks(landmark, {
+          radius: (data) => DrawingUtils.lerp(data.from!.z, -0.15, 0.1, 5, 1)
+        });
+        drawingUtils.drawConnectors(landmark, PoseLandmarker.POSE_CONNECTIONS);
+      }
+
       setIsLoading(false);
     };
   }, [imageUrl]);
@@ -51,4 +59,4 @@ export const useImageCanvas = ({ imageUrl }: UseImageCanvasProps) => {
     canvasRef,
     isLoading,
   };
-}; 
+};

@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import defaultImage from "@/assets/default.jpg"
 
 export const useHomePage = () => {
-  const DEFAULT_IMAGE = "https://picsum.photos/200/300";
-  const [imageUrl, setImageUrl] = useState<string>(DEFAULT_IMAGE);
+  const [imageUrl, setImageUrl] = useState<string>(defaultImage);
 
   const onImageGiven = (event: React.ChangeEvent<HTMLInputElement>) => {
     const image = event.target.files?.[0];
