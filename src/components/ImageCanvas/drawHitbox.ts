@@ -16,7 +16,8 @@ import { drawHitboxRightLeg } from './drawHitboxRightLeg';
 
 export const drawHitbox = async (
   cnv: HTMLCanvasElement,
-  ctx: CanvasRenderingContext2D
+  ctx: CanvasRenderingContext2D,
+  isDefault: boolean,
 ) => {
   const visionWasmFileSet = await FilesetResolver.forVisionTasks(
     "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
@@ -33,8 +34,8 @@ export const drawHitbox = async (
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
   for (const landmark of poseLandmarkerResult.landmarks) {
-    const side  = checkSide(landmark)
-    const style = checkFightingStyle(landmark, side)
+    const side  = isDefault ? "1P"        : checkSide(landmark)
+    const style = isDefault ? "LeftPunch" : checkFightingStyle(landmark, side)
     console.log(side);
     console.log(style);
     // drawTest(cnv, ctx, poseLandmarkerResult);

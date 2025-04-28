@@ -3,6 +3,7 @@ import defaultImage from "@/assets/default.jpg";
 
 export const useHomePage = () => {
   const [imageUrl, setImageUrl] = useState<string>(defaultImage);
+  const [isDefault, setIsDefault] = useState<boolean>(true);
 
   const onImageGiven = (event: React.ChangeEvent<HTMLInputElement>) => {
     const image = event.target.files?.[0];
@@ -13,10 +14,12 @@ export const useHomePage = () => {
     }
 
     setImageUrl(URL.createObjectURL(image));
+    setIsDefault(false);
   };
 
   return {
     imageUrl,
     onImageGiven,
+    isDefault,
   };
 };
