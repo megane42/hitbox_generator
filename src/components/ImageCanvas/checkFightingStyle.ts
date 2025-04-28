@@ -7,11 +7,13 @@ export const checkFightingStyle = (
   landmark: NormalizedLandmark[],
   side: Side,
 ): FightingStyle => {
-  if (landmark[15].y < landmark[0].y) { // if left wrist is upper than nose
+  const headHeight = calcHeadHeight(landmark) * 4.0;
+
+  if (landmark[15].y < landmark[0].y - headHeight) { // if left wrist is upper than nose
     return "LeftUppercut"
   }
 
-  if (landmark[16].y < landmark[0].y) { // if right wrist is upper than nose
+  if (landmark[16].y < landmark[0].y - headHeight) { // if right wrist is upper than nose
     return "RightUppercut"
   }
 
@@ -51,3 +53,13 @@ export const checkFightingStyle = (
   // maybe it is, anyway
   return "LeftPunch"
 };
+
+const calcHeadHeight = (landmark: NormalizedLandmark[]) => {
+  let maxY = -Infinity;
+  let minY = Infinity;
+  for (let i = 0; i <= 10; i++) {
+    maxY = Math.max(maxY, landmark[i].y);
+    minY = Math.min(minY, landmark[i].y);
+  }
+  return maxY - minY
+}
