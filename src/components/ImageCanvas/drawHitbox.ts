@@ -43,7 +43,7 @@ export const drawHitbox = async (
     switch (style) {
       // When punching, draw the hurtBox for lower body, rather than for each leg, since it gets too detailed
       case "LeftPunch":
-        drawHitboxLeftArm(cnv, ctx, landmark);
+        drawHitboxLeftArm(cnv, ctx, landmark, side);
         drawHurtboxHead(cnv, ctx, landmark);
         drawHurtboxUpperBody(cnv, ctx, landmark);
         drawHurtboxRightArm(cnv, ctx, landmark);
@@ -51,7 +51,7 @@ export const drawHitbox = async (
         drawHurtboxLowerBody(cnv, ctx, landmark);
         break;
       case "RightPunch":
-        drawHitboxRightArm(cnv, ctx, landmark);
+        drawHitboxRightArm(cnv, ctx, landmark, side);
         drawHurtboxHead(cnv, ctx, landmark);
         drawHurtboxUpperBody(cnv, ctx, landmark);
         drawHurtboxRightArm(cnv, ctx, landmark);
@@ -59,7 +59,7 @@ export const drawHitbox = async (
         drawHurtboxLowerBody(cnv, ctx, landmark);
         break;
       case "LeftKick":
-        drawHitboxLeftLeg(cnv, ctx, landmark);
+        drawHitboxLeftLeg(cnv, ctx, landmark, side);
         drawHurtboxHead(cnv, ctx, landmark);
         drawHurtboxUpperBody(cnv, ctx, landmark);
         drawHurtboxRightArm(cnv, ctx, landmark);
@@ -68,7 +68,7 @@ export const drawHitbox = async (
         drawHurtboxLeftLeg(cnv, ctx, landmark);
         break;
       case "RightKick":
-        drawHitboxRightLeg(cnv, ctx, landmark);
+        drawHitboxRightLeg(cnv, ctx, landmark, side);
         drawHurtboxHead(cnv, ctx, landmark);
         drawHurtboxUpperBody(cnv, ctx, landmark);
         drawHurtboxRightArm(cnv, ctx, landmark);
@@ -78,11 +78,11 @@ export const drawHitbox = async (
         break;
       // Anti-air
       case "LeftUppercut":
-        drawHitboxLeftArm(cnv, ctx, landmark);
+        drawHitboxLeftArm(cnv, ctx, landmark, side);
         drawHurtboxLowerBody(cnv, ctx, landmark);
         break;
       case "RightUppercut":
-        drawHitboxRightArm(cnv, ctx, landmark);
+        drawHitboxRightArm(cnv, ctx, landmark, side);
         drawHurtboxLowerBody(cnv, ctx, landmark);
         break;
     }

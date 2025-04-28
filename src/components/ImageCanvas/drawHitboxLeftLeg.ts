@@ -1,9 +1,11 @@
 import { NormalizedLandmark } from "@mediapipe/tasks-vision";
+import { Side } from "./checkSide";
 
 export const drawHitboxLeftLeg = (
   cnv: HTMLCanvasElement,
   ctx: CanvasRenderingContext2D,
   landmark: NormalizedLandmark[],
+  side: Side,
 ) => {
   const marginX = cnv.width * 0.05;
   const marginY = cnv.height * 0.05;
@@ -26,10 +28,19 @@ export const drawHitboxLeftLeg = (
   const minYPx = minY * cnv.height;
 
   ctx.fillStyle = "rgb(255 0 0 / 50%)";
-  ctx.fillRect(
-    minXPx,
-    minYPx,
-    (maxXPx - minXPx) + marginX,
-    (maxYPx - minYPx) + marginY
-  );
+  if (side === "1P") {
+    ctx.fillRect(
+      minXPx,
+      minYPx,
+      (maxXPx - minXPx) + marginX,
+      (maxYPx - minYPx) + marginY
+    );
+  } else {
+    ctx.fillRect(
+      minXPx - marginX,
+      minYPx,
+      (maxXPx - minXPx) + marginX,
+      (maxYPx - minYPx) + marginY
+    );
+  }
 };
