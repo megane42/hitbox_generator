@@ -41,6 +41,7 @@ export const drawHitbox = async (
     // drawTest(cnv, ctx, poseLandmarkerResult);
 
     switch (style) {
+      // When punching, draw the hurtBox for lower body, rather than for each leg, since it gets too detailed
       case "LeftPunch":
         drawHitboxLeftArm(cnv, ctx, landmark);
         drawHurtboxHead(cnv, ctx, landmark);
@@ -74,6 +75,15 @@ export const drawHitbox = async (
         drawHurtboxLeftArm(cnv, ctx, landmark);
         drawHurtboxRightLeg(cnv, ctx, landmark);
         drawHurtboxLeftLeg(cnv, ctx, landmark);
+        break;
+      // Anti-air
+      case "LeftUppercut":
+        drawHitboxLeftArm(cnv, ctx, landmark);
+        drawHurtboxLowerBody(cnv, ctx, landmark);
+        break;
+      case "RightUppercut":
+        drawHitboxRightArm(cnv, ctx, landmark);
+        drawHurtboxLowerBody(cnv, ctx, landmark);
         break;
     }
   }
