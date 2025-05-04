@@ -4,9 +4,10 @@ import { drawHitbox } from '@/components/ImageCanvas/drawHitbox';
 interface UseImageCanvasProps {
   imageUrl: string;
   isDefault: boolean;
+  onCanvasReady: (canvas: HTMLCanvasElement) => void;
 }
 
-export const useImageCanvas = ({ imageUrl, isDefault }: UseImageCanvasProps) => {
+export const useImageCanvas = ({ imageUrl, isDefault, onCanvasReady }: UseImageCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -28,8 +29,10 @@ export const useImageCanvas = ({ imageUrl, isDefault }: UseImageCanvasProps) => 
       setIsLoading(true);
       await drawHitbox(canvas, ctx, isDefault);
       setIsLoading(false);
+      
+      onCanvasReady(canvas);
     };
-  }, [imageUrl]);
+  }, [imageUrl, onCanvasReady]);
 
   return {
     canvasRef,

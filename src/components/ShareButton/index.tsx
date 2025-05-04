@@ -4,12 +4,12 @@ import { useShareButton } from '@/components/ShareButton/useShareButton';
 
 type Props = {
   text: string;
-  imageUrl: string;
+  canvas?: HTMLCanvasElement;
   sx?: SxProps<Theme>;
 };
 
-const ShareButton = ({ text, imageUrl, sx }: Props) => {
-  const { onButtonClick } = useShareButton(imageUrl);
+const ShareButton = ({ text, canvas, sx }: Props) => {
+  const { onButtonClick } = useShareButton(canvas);
 
   return (
     <Box>

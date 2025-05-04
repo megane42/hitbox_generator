@@ -4,11 +4,12 @@ import { useImageCanvas } from '@/components/ImageCanvas/useImageCanvas';
 interface ImageCanvasProps {
   imageUrl: string;
   isDefault: boolean;
+  onCanvasReady: (canvas: HTMLCanvasElement) => void;
   sx?: SxProps<Theme>;
 }
 
-const ImageCanvas = ({ imageUrl, isDefault, sx }: ImageCanvasProps) => {
-  const { canvasRef, isLoading } = useImageCanvas({ imageUrl, isDefault });
+const ImageCanvas = ({ imageUrl, isDefault, onCanvasReady, sx }: ImageCanvasProps) => {
+  const { canvasRef, isLoading } = useImageCanvas({ imageUrl, isDefault, onCanvasReady });
 
   return (
     <Box

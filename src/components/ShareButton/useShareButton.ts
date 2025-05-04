@@ -1,12 +1,15 @@
-export const useShareButton = (imageUrl: string) => {
+export const useShareButton = (canvas?: HTMLCanvasElement) => {
   const onButtonClick = async () => {
-    const blob = await fetch(imageUrl).then((r) => r.blob());
-    const file = new File([blob], "image.png", { type: "image/png" });
-    await navigator.share({
-      text: "Hitbox Generator",
-      url: "https://megane42.github.io/hitbox_generator/",
-      files: [file],
-    });
+    if (canvas) {
+      const blob = await new Promise<Blob>((resolve) => {
+          canvas.toBlob((blob) => { if (blob) resolve(blob); }, 'image/png');
+        });
+      const file = new File([blob], "image.png", { type: "image/png" });
+      await navigator.share({
+        text: "Hitbox Generator https://megane42.github.io/hitbox_generator/",
+        files: [file],
+      });
+    }
   };
 
   return {
