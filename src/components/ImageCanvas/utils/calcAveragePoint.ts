@@ -11,5 +11,5 @@ export const calcAveragePoint = (points: NormalizedLandmark[]): NormalizedLandma
     y: avgY,
     z: avgZ,
     visibility: avgVisibility,
-  }
-}
+  };
+};

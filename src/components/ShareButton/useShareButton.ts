@@ -6,7 +6,7 @@ export const useShareButton = (imageUrl: string) => {
       text: "Hitbox Generator",
       url: "https://megane42.github.io/hitbox_generator/",
       files: [file],
-    })
+    });
   };
 
   return {
