@@ -17,7 +17,7 @@ const ImageCanvas = ({ imageUrl, isDefault, onCanvasReady, sx }: ImageCanvasProp
         position: 'relative',
         overflow: 'hidden',
         borderRadius: 0,
-        width: 'fit-content',
+        width: '100%',
         height: 'auto',
         boxShadow: 0,
         ...sx,
@@ -27,7 +27,7 @@ const ImageCanvas = ({ imageUrl, isDefault, onCanvasReady, sx }: ImageCanvasProp
         ref={canvasRef}
         style={{
           display: 'block',
-          maxWidth: '100%',
+          width: '100%',
           height: 'auto'
         }}
       />
