@@ -6,6 +6,7 @@ import ImageSelectButton from '@/components/ImageSelectButton';
 import ShareButton from '@/components/ShareButton';
 import { useHomePage } from '@/pages/HomePage/useHomePage';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import XIcon from '@mui/icons-material/X';
 
 const HomePage = () => {
   const { imageUrl, onImageGiven, isDefault } = useHomePage();
@@ -59,9 +60,14 @@ const HomePage = () => {
       </Box>
 
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "center" }}>
-        <Link href="https://github.com/megane42/hitbox_generator" target="_blank" rel="noopener noreferrer">
-          <GitHubIcon sx={{ fontSize: 40, color: 'black' }} />
-        </Link>
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <Link href="https://github.com/megane42/hitbox_generator" target="_blank" rel="noopener noreferrer">
+            <GitHubIcon sx={{ fontSize: 40, color: 'black' }} />
+          </Link>
+          <Link href="https://x.com/megane42" target="_blank" rel="noopener noreferrer">
+            <XIcon sx={{ fontSize: 40, color: 'black' }} />
+          </Link>
+        </Box>
       </Box>
     </Container>
   );
