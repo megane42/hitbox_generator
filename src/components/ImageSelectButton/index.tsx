@@ -1,6 +1,6 @@
 import { Button, Box, SxProps, Theme } from '@mui/material';
 import { useImageSelectButton } from '@/components/ImageSelectButton/useImageSelectButton';
-import ImageIcon from '@/assets/icons/image2.svg?react';
+import ImageIcon from '@/assets/icons/image.svg?react';
 
 type Props = {
   text: string;

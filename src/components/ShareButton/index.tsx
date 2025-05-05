@@ -1,6 +1,6 @@
 import { Button, Box, SxProps, Theme } from '@mui/material';
 import { useShareButton } from '@/components/ShareButton/useShareButton';
-import ShareIcon from '@/assets/icons/share2.svg?react';
+import ShareIcon from '@/assets/icons/share.svg?react';
 
 type Props = {
   text: string;
