@@ -15,9 +15,9 @@ const HomePage = () => {
       <h1>Hitbox Generator</h1>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <Box sx={{ maxWidth: '600px'}}>
-          <ImageCanvas 
-            imageUrl={imageUrl} 
-            isDefault={isDefault} 
+          <ImageCanvas
+            imageUrl={imageUrl}
+            isDefault={isDefault}
             onCanvasReady={setCanvas}
           />
         </Box>
