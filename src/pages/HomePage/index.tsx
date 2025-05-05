@@ -13,12 +13,12 @@ const HomePage = () => {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | undefined>();
 
   return (
-    <Container maxWidth="sm" sx={{ display: "flex", flexDirection: "column", gap: 6, mt: 4, mb: 8 }}>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+    <Container maxWidth="sm" sx={{ display: "flex", flexDirection: "column", gap: 12, mt: 8, mb: 8 }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
         <Typography variant="h1" component="h1">
           Hitbox Generator
         </Typography>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <Box sx={{ width: "100%" }}>
             <ImageCanvas
               imageUrl={imageUrl}
