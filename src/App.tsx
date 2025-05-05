@@ -8,12 +8,12 @@ import '@/App.css';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename="/hitbox_generator">
-        <Routes>
-          <Route path="/"      element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter basename="/hitbox_generator">
+      <Routes>
+        <Route path="/"      element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </BrowserRouter>
     </ThemeProvider>
   );
 }

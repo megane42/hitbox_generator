@@ -1,6 +1,6 @@
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { Button, Box, SxProps, Theme } from '@mui/material';
 import { useCameraOpenButton } from '@/components/CameraOpenButton/useCameraOpenButton';
+import CameraIcon from '@/assets/icons/camera2.svg?react';
 
 type Props = {
   text: string;
@@ -14,9 +14,9 @@ const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
   return (
     <Box>
       <Button
-        variant="contained"
+        variant="outlined"
         color="primary"
-        startIcon={<CameraAltIcon />}
+        startIcon={<CameraIcon fill="white" width={20} height={20} />}
         onClick={onButtonClick}
         sx={{
           textTransform: 'none',
@@ -24,8 +24,8 @@ const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
           boxShadow: 0,
           padding: '8px 16px',
           fontFamily: 'Instrument Serif',
-          fontWeight: 800,
-          letterSpacing: '4px',
+          fontWeight: 400,
+          letterSpacing: '2px',
           ...sx,
         }}
       >

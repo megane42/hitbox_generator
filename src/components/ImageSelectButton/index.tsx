@@ -1,6 +1,6 @@
-import ImageIcon from '@mui/icons-material/Image';
 import { Button, Box, SxProps, Theme } from '@mui/material';
 import { useImageSelectButton } from '@/components/ImageSelectButton/useImageSelectButton';
+import ImageIcon from '@/assets/icons/image2.svg?react';
 
 type Props = {
   text: string;
@@ -15,12 +15,17 @@ const ImageSelectButton = ({ text, onImageSelect, sx }: Props) => {
     <Box>
       <Button
         variant="outlined"
-        startIcon={<ImageIcon />}
+        color="primary"
+        startIcon={<ImageIcon fill="white" width={20} height={20} />}
         onClick={onButtonClick}
         sx={{
           textTransform: 'none',
-          borderRadius: 2,
+          borderRadius: 0,
+          boxShadow: 0,
           padding: '8px 16px',
+          fontFamily: 'Instrument Serif',
+          fontWeight: 400,
+          letterSpacing: '2px',
           ...sx,
         }}
       >

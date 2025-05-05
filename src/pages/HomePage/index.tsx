@@ -22,8 +22,8 @@ const HomePage = () => {
           />
         </Box>
         <Box sx={{ display: "flex", gap: 2 }}>
-          <ImageSelectButton text="Choose from Device" onImageSelect={onImageGiven} />
-          <CameraOpenButton text="Take a Photo" onImageTaken={onImageGiven} />
+          <CameraOpenButton text="Open Camera" onImageTaken={onImageGiven} />
+          <ImageSelectButton text="Select Image" onImageSelect={onImageGiven} />
           <ShareButton text="Share" canvas={canvas}/>
         </Box>
       </Box>
