@@ -14,9 +14,9 @@ const ShareButton = ({ text, canvas, sx }: Props) => {
   return (
     <Box sx={{ width: "100%" }}>
       <Button
-        variant="contained"
+        variant="outlined"
         color="primary"
-        startIcon={<ShareIcon fill="white" width={20} height={20} />}
+        startIcon={<ShareIcon width={20} height={20} />}
         onClick={onButtonClick}
         sx={{
           textTransform: 'none',

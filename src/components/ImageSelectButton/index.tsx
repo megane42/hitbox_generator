@@ -14,9 +14,9 @@ const ImageSelectButton = ({ text, onImageSelect, sx }: Props) => {
   return (
     <Box sx={{ width: "100%" }}>
       <Button
-        variant="outlined"
+        variant="contained"
         color="primary"
-        startIcon={<ImageIcon fill="white" width={20} height={20} />}
+        startIcon={<ImageIcon width={20} height={20} />}
         onClick={onButtonClick}
         sx={{
           textTransform: 'none',

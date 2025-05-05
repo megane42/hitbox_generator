@@ -14,9 +14,9 @@ const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
   return (
     <Box sx={{ width: "100%" }}>
       <Button
-        variant="outlined"
+        variant="contained"
         color="primary"
-        startIcon={<CameraIcon fill="white" width={20} height={20} />}
+        startIcon={<CameraIcon width={20} height={20} />}
         onClick={onButtonClick}
         sx={{
           textTransform: 'none',
