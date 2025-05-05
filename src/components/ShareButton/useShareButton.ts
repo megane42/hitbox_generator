@@ -6,7 +6,7 @@ export const useShareButton = (canvas?: HTMLCanvasElement) => {
         });
       const file = new File([blob], "image.png", { type: "image/png" });
       await navigator.share({
-        text: "Hitbox Generator https://megane42.github.io/hitbox_generator/",
+        text: "#HitboxGenerator https://megane42.github.io/hitbox_generator/",
         files: [file],
       });
     }
