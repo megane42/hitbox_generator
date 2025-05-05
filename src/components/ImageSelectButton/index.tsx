@@ -12,7 +12,7 @@ const ImageSelectButton = ({ text, onImageSelect, sx }: Props) => {
   const { fileInputRef, onButtonClick } = useImageSelectButton();
 
   return (
-    <Box>
+    <Box sx={{ width: "100%" }}>
       <Button
         variant="outlined"
         color="primary"
@@ -26,6 +26,7 @@ const ImageSelectButton = ({ text, onImageSelect, sx }: Props) => {
           fontFamily: 'Instrument Serif',
           fontWeight: 400,
           letterSpacing: '2px',
+          width: "100%",
           ...sx,
         }}
       >

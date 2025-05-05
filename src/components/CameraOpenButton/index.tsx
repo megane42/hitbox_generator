@@ -12,7 +12,7 @@ const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
   const { fileInputRef, onButtonClick } = useCameraOpenButton();
 
   return (
-    <Box>
+    <Box sx={{ width: "100%" }}>
       <Button
         variant="outlined"
         color="primary"
@@ -26,6 +26,7 @@ const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
           fontFamily: 'Instrument Serif',
           fontWeight: 400,
           letterSpacing: '2px',
+          width: "100%",
           ...sx,
         }}
       >

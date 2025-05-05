@@ -12,7 +12,7 @@ const ShareButton = ({ text, canvas, sx }: Props) => {
   const { onButtonClick } = useShareButton(canvas);
 
   return (
-    <Box>
+    <Box sx={{ width: "100%" }}>
       <Button
         variant="contained"
         color="primary"
@@ -26,6 +26,7 @@ const ShareButton = ({ text, canvas, sx }: Props) => {
           fontFamily: 'Instrument Serif',
           fontWeight: 400,
           letterSpacing: '2px',
+          width: "100%",
           ...sx,
         }}
       >
