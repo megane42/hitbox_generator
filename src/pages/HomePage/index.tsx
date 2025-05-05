@@ -5,13 +5,14 @@ import ImageCanvas from '@/components/ImageCanvas';
 import ImageSelectButton from '@/components/ImageSelectButton';
 import ShareButton from '@/components/ShareButton';
 import { useHomePage } from '@/pages/HomePage/useHomePage';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const HomePage = () => {
   const { imageUrl, onImageGiven, isDefault } = useHomePage();
   const [canvas, setCanvas] = useState<HTMLCanvasElement | undefined>();
 
   return (
-    <Container maxWidth="sm" sx={{ display: "flex", flexDirection: "column", gap: 8, mt: 4 }}>
+    <Container maxWidth="sm" sx={{ display: "flex", flexDirection: "column", gap: 6, mt: 4, mb: 8 }}>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <Typography variant="h1" component="h1">
           Hitbox Generator
@@ -55,6 +56,12 @@ const HomePage = () => {
             </ListItem>
           </List>
         </Box>
+      </Box>
+
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, alignItems: "center" }}>
+        <Link href="https://github.com/megane42/hitbox_generator" target="_blank" rel="noopener noreferrer">
+          <GitHubIcon sx={{ fontSize: 40, color: 'black' }} />
+        </Link>
       </Box>
     </Container>
   );
