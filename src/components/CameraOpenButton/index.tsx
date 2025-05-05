@@ -15,12 +15,17 @@ const CameraOpenButton = ({ text, onImageTaken, sx }: Props) => {
     <Box>
       <Button
         variant="contained"
+        color="primary"
         startIcon={<CameraAltIcon />}
         onClick={onButtonClick}
         sx={{
           textTransform: 'none',
-          borderRadius: 2,
+          borderRadius: 0,
+          boxShadow: 0,
           padding: '8px 16px',
+          fontFamily: 'Instrument Serif',
+          fontWeight: 800,
+          letterSpacing: '4px',
           ...sx,
         }}
       >

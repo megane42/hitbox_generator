@@ -11,7 +11,7 @@ const HomePage = () => {
   const [canvas, setCanvas] = useState<HTMLCanvasElement | undefined>();
 
   return (
-    <Container>
+    <Container sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <h1>Hitbox Generator</h1>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <Box sx={{ maxWidth: '600px'}}>

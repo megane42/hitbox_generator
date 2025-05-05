@@ -16,10 +16,10 @@ const ImageCanvas = ({ imageUrl, isDefault, onCanvasReady, sx }: ImageCanvasProp
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        borderRadius: 2,
+        borderRadius: 0,
         width: 'fit-content',
         height: 'auto',
-        boxShadow: 3,
+        boxShadow: 0,
         ...sx,
       }}
     >
