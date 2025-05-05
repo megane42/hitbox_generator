@@ -34,11 +34,23 @@ export const drawHitbox = async (
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
   for (const landmark of poseLandmarkerResult.landmarks) {
-    const side  = isDefault ? "1P"        : checkSide(landmark);
-    const style = isDefault ? "LeftPunch" : checkFightingStyle(landmark, side);
+    const side  = checkSide(landmark);
+    const style = checkFightingStyle(landmark, side);
     console.log(side);
     console.log(style);
     // drawTest(cnv, ctx, poseLandmarkerResult);
+
+    // Treat default image as a special case for demonstration purposes
+    if (isDefault) {
+      drawHitboxLeftArm(cnv, ctx, landmark, side);
+      drawHurtboxHead(cnv, ctx, landmark);
+      drawHurtboxUpperBody(cnv, ctx, landmark);
+      drawHurtboxRightArm(cnv, ctx, landmark);
+      drawHurtboxLeftArm(cnv, ctx, landmark);
+      drawHurtboxRightLeg(cnv, ctx, landmark);
+      drawHurtboxLeftLeg(cnv, ctx, landmark);
+      return;
+    }
 
     switch (style) {
     // When punching, draw the hurtBox for lower body, rather than for each leg, since it gets too detailed
