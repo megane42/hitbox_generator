@@ -1,48 +1,5 @@
 h1 {
-  font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 800;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Fondamento", cursive;
-  font-weight: 800;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Trade Winds", system-ui;
-  font-weight: 800;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Wendy One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Spectral SC", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-h1 {
-  font-family: "Alegreya SC", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-h1 {
   font-family: "Instrument Serif", serif;
   font-weight: 400;
-  letter-spacing: 8px;
+  letter-spacing: 16px;
 }
