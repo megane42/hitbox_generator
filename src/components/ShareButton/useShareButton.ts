@@ -7,13 +7,19 @@ export const useShareButton = (canvas?: HTMLCanvasElement) => {
 
       const file = new File([blob], "image.png", { type: "image/png" });
       
-      if (!navigator.share) {
-        alert('Your device does not support the share feature. / お使いの端末では共有機能が利用できません。');
-        return;
-      }
+      if (!navigator.share || !navigator.canShare({ files: [file] })) {
+        // Fallback to download
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
 
-      if (!navigator.canShare({ files: [file] })) {
-        alert('Your device does not support the share feature. / お使いの端末では画像の共有が利用できません。');
+        a.href = url;
+        a.download = 'hitbox.png';
+
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        URL.revokeObjectURL(url);
         return;
       }
 
