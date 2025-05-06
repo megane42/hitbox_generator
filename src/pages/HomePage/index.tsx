@@ -6,7 +6,6 @@ import CameraOpenButton from "@/components/CameraOpenButton";
 import ImageCanvas from '@/components/ImageCanvas';
 import ImageSelectButton from '@/components/ImageSelectButton';
 import ShareButton from '@/components/ShareButton';
-import SaveButton from '@/components/SaveButton';
 import { useHomePage } from '@/pages/HomePage/useHomePage';
 
 const HomePage = () => {
@@ -33,9 +32,6 @@ const HomePage = () => {
           </Box>
           <Box sx={{ display: "flex", gap: 2 }}>
             <ShareButton text="Share" canvas={canvas}/>
-          </Box>
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <SaveButton text="Save" canvas={canvas}/>
           </Box>
         </Box>
       </Box>
