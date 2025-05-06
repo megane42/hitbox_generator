@@ -7,6 +7,8 @@ export const drawHurtboxUpperBody = (
 ) => {
   const marginX = cnv.width * 0.01;
   const marginY = cnv.height * 0.1;
+  const minWidth = cnv.width * 0.1;
+  const minHeight = cnv.height * 0.1;
 
   // upper body landmarks : 11, 12, 23, 24
   // https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker#pose_landmarker_model
@@ -29,7 +31,7 @@ export const drawHurtboxUpperBody = (
   ctx.fillRect(
     minXPx,
     minYPx - (marginY / 2.0),
-    (maxXPx - minXPx) + marginX,
-    (maxYPx - minYPx) + marginY
+    Math.max((maxXPx - minXPx) + marginX, minWidth),
+    Math.max((maxYPx - minYPx) + marginY, minHeight)
   );
 };

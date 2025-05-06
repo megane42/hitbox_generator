@@ -7,6 +7,8 @@ export const drawHurtboxHead = (
 ) => {
   const marginX = cnv.width * 0.05;
   const marginY = cnv.height * 0.05;
+  const minWidth = cnv.width * 0.1;
+  const minHeight = cnv.height * 0.1;
 
   // head landmarks : 0 ~ 10
   // https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker#pose_landmarker_model
@@ -29,7 +31,7 @@ export const drawHurtboxHead = (
   ctx.fillRect(
     minXPx,
     minYPx - (maxYPx - minYPx),
-    (maxXPx - minXPx) + marginX,
-    (maxYPx - minYPx) * 2.0 + marginY
+    Math.max((maxXPx - minXPx) + marginX, minWidth),
+    Math.max((maxYPx - minYPx) * 2.0 + marginY, minHeight)
   );
 };

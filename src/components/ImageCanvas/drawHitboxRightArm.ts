@@ -9,6 +9,8 @@ export const drawHitboxRightArm = (
 ) => {
   const marginX = cnv.width * 0.05;
   const marginY = cnv.height * 0.05;
+  const minWidth = cnv.width * 0.1;
+  const minHeight = cnv.height * 0.1;
 
   // right arm landmarks : 14, 16, 18, 20, 22
   // https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker#pose_landmarker_model
@@ -32,15 +34,15 @@ export const drawHitboxRightArm = (
     ctx.fillRect(
       minXPx,
       minYPx,
-      (maxXPx - minXPx) + marginX,
-      (maxYPx - minYPx) + marginY
+      Math.max((maxXPx - minXPx) + marginX, minWidth),
+      Math.max((maxYPx - minYPx) + marginY, minHeight)
     );
   } else {
     ctx.fillRect(
       minXPx - marginX,
       minYPx,
-      (maxXPx - minXPx) + marginX,
-      (maxYPx - minYPx) + marginY
+      Math.max((maxXPx - minXPx) + marginX, minWidth),
+      Math.max((maxYPx - minYPx) + marginY, minHeight)
     );
   }
 };

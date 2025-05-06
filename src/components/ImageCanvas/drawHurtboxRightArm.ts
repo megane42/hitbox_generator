@@ -7,6 +7,8 @@ export const drawHurtboxRightArm = (
 ) => {
   const marginX = cnv.width * 0.01;
   const marginY = cnv.height * 0.01;
+  const minWidth = cnv.width * 0.1;
+  const minHeight = cnv.height * 0.1;
 
   // right arm landmarks : 12, 14, 16
   // https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker#pose_landmarker_model
@@ -29,7 +31,7 @@ export const drawHurtboxRightArm = (
   ctx.fillRect(
     minXPx,
     minYPx,
-    (maxXPx - minXPx) + marginX,
-    (maxYPx - minYPx) + marginY
+    Math.max((maxXPx - minXPx) + marginX, minWidth),
+    Math.max((maxYPx - minYPx) + marginY, minHeight)
   );
 };

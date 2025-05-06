@@ -7,6 +7,8 @@ export const drawHurtboxLowerBody = (
 ) => {
   const marginX = cnv.width * 0.01;
   const marginY = cnv.height * 0.1;
+  const minWidth = cnv.width * 0.1;
+  const minHeight = cnv.height * 0.1;
 
   // lower body landmarks : 23, 24, 25, 26, 27, 28, 29, 30, 31, 32
   // https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker#pose_landmarker_model
@@ -29,7 +31,7 @@ export const drawHurtboxLowerBody = (
   ctx.fillRect(
     minXPx,
     minYPx - (marginY / 2.0),
-    (maxXPx - minXPx) + marginX,
-    (maxYPx - minYPx) + marginY
+    Math.max((maxXPx - minXPx) + marginX, minWidth),
+    Math.max((maxYPx - minYPx) + marginY, minHeight)
   );
 };
