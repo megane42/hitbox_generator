@@ -13,6 +13,7 @@ import { drawHurtboxLeftLeg } from '@/components/ImageCanvas/drawHurtboxLeftLeg'
 import { drawHurtboxRightArm } from '@/components/ImageCanvas/drawHurtboxRightArm';
 import { drawHurtboxRightLeg } from '@/components/ImageCanvas/drawHurtboxRightLeg';
 import { drawHurtboxUpperBody } from '@/components/ImageCanvas/drawHurtboxUpperBody';
+import { drawHitboxUpperBody } from './drawHitboxUpperBody';
 // import { drawTest } from './drawTest';
 
 export const drawHitbox = async (
@@ -93,10 +94,12 @@ export const drawHitbox = async (
       // Anti-air
     case "LeftUppercut":
       drawHitboxLeftArm(cnv, ctx, landmark, side);
+      drawHitboxUpperBody(cnv, ctx, landmark, side);
       drawHurtboxLowerBody(cnv, ctx, landmark);
       break;
     case "RightUppercut":
       drawHitboxRightArm(cnv, ctx, landmark, side);
+      drawHitboxUpperBody(cnv, ctx, landmark, side);
       drawHurtboxLowerBody(cnv, ctx, landmark);
       break;
     }
