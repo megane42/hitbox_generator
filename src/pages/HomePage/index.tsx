@@ -1,3 +1,5 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
+import XIcon from '@mui/icons-material/X';
 import { Box, Container, ListItemText, ListItem, List, Typography, Link } from '@mui/material';
 import { useState } from 'react';
 import CameraOpenButton from "@/components/CameraOpenButton";
@@ -5,8 +7,6 @@ import ImageCanvas from '@/components/ImageCanvas';
 import ImageSelectButton from '@/components/ImageSelectButton';
 import ShareButton from '@/components/ShareButton';
 import { useHomePage } from '@/pages/HomePage/useHomePage';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import XIcon from '@mui/icons-material/X';
 
 const HomePage = () => {
   const { imageUrl, onImageGiven, isDefault } = useHomePage();

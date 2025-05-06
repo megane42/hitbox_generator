@@ -2,8 +2,8 @@ export const useShareButton = (canvas?: HTMLCanvasElement) => {
   const onButtonClick = async () => {
     if (canvas) {
       const blob = await new Promise<Blob>((resolve) => {
-          canvas.toBlob((blob) => { if (blob) resolve(blob); }, 'image/png');
-        });
+        canvas.toBlob((blob) => { if (blob) resolve(blob); }, 'image/png');
+      });
 
       const file = new File([blob], "image.png", { type: "image/png" });
       
