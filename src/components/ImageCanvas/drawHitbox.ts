@@ -30,6 +30,7 @@ export const drawHitbox = async (
         modelAssetPath: poseLandmarkerUrl
       },
       runningMode: "IMAGE",
+      numPoses: 2,
     });
 
   const poseLandmarkerResult = poseLandmarker.detect(cnv);
