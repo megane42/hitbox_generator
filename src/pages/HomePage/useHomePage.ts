@@ -9,7 +9,7 @@ export const useHomePage = () => {
     const image = event.target.files?.[0];
 
     if (!image || !image.type.startsWith('image/')) {
-      alert('Selected file is not a valid image.');
+      alert('Selected file is not a valid image. / 選択されたファイルは有効な画像ではありません。');
       return;
     }
 
